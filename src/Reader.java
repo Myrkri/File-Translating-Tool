@@ -19,9 +19,9 @@ class Reader{
         Scanner scanner = new Scanner(file);
         while (scanner.hasNext()){
             String text = scanner.nextLine();
-            System.out.println(text);
+            //System.out.println(text); //test
             Writer writer = new Writer(text);
-            writer.translate();    //TODO add a method to start translating
+            writer.translate();
         }
     }
 }

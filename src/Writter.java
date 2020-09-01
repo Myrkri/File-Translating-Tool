@@ -7,6 +7,7 @@ class Writter {
     }
 
     void translate(){
-        System.out.println(text);
+
+        //System.out.println(text);
     }
 }

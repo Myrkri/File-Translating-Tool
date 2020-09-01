@@ -20,8 +20,8 @@ class Reader{
         while (scanner.hasNext()){
             String text = scanner.nextLine();
             System.out.println(text);
-            Writter writter = new Writter(text);
-            writter.translate();    //TODO add a method to start translating
+            Writer writer = new Writer(text);
+            writer.translate();    //TODO add a method to start translating
         }
     }
 }

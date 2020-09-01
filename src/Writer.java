@@ -1,8 +1,8 @@
-class Writter {
+class Writer {
 
     private String text = "";
 
-    public Writter(String text) {
+    public Writer(String text) {
         this.text = text;
     }
 

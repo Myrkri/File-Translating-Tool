@@ -4,9 +4,9 @@ import com.google.cloud.translate.Translation;
 
 class Writer {
 
-    private String text = "";
+    private String text;
 
-    public Writer(String text) {
+    Writer(String text) {
         this.text = text;
     }
 
@@ -15,7 +15,7 @@ class Writer {
         System.setProperty("GOOGLE_API_KEY", "AIzaSyBvkISMdns7ZPDdkBZ4cZF1r6N1F0x--8E");
         Translate translate = TranslateOptions.getDefaultInstance().getService();
 
-        Translation translation = translate.translate(text);
-        System.out.printf("Translated text: ", translation.getTranslatedText()); //TODO fix translated text
+        Translation translation = translate.translate(text, Translate.TranslateOption.sourceLanguage("en"), Translate.TranslateOption.targetLanguage("ru"));
+        System.out.printf("Translated text: "+text+"\nText: %s\n", translation.getTranslatedText());
     }
 }

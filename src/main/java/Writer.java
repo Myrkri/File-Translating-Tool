@@ -31,7 +31,7 @@ class Writer {
             System.out.println(e.getMessage());
         }
     }
-    void fileCreator() throws Exception{
+    private void fileCreator() throws Exception{
         File file = new File("E:\\" + fileName);
         if (file.createNewFile()){
             System.out.println("File was created!");

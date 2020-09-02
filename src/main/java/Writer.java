@@ -7,8 +7,8 @@ import java.io.FileWriter;
 
 class Writer {
 
-    private String text;
-    private String fileName;
+    private final String text;
+    private final String fileName;
 
     Writer(String text, String fileName) {
         this.text = text;

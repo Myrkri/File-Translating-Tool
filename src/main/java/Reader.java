@@ -2,16 +2,16 @@ import java.io.File;
 import java.util.Scanner;
 
 class Reader{
-    private String address;
+    private final String address;
     private String fileName = "";
 
     Reader(String address, String fileName) {
         this.address = address;
         this.fileName = fileName;
     }
-    public Reader(String address) {
+    /*public Reader(String address) {
         this.address = address;
-    }
+    }*/
     void read() throws Exception {
         File file = new File(address, fileName);
 

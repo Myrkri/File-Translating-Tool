@@ -20,7 +20,7 @@ class Reader{
         while (scanner.hasNext()){
             String text = scanner.nextLine();
             //System.out.println(text); //test
-            Writer writer = new Writer(text);
+            Writer writer = new Writer(text, fileName);
             writer.translate();
         }
     }

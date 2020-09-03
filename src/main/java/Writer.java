@@ -21,7 +21,7 @@ class Writer {
         Translate translate = TranslateOptions.getDefaultInstance().getService();
 
         Translation translation = translate.translate(text, Translate.TranslateOption.sourceLanguage("en"), Translate.TranslateOption.targetLanguage("ru"));
-        System.out.printf("Translated text: "+text+"\nText: %s\n", translation.getTranslatedText());
+        System.out.printf("Text: "+text+"\nTranslated text: %s\n", translation.getTranslatedText());
         try {
             fileCreator();
             FileWriter fileWriter = new FileWriter("E:\\" + fileName);

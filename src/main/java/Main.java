@@ -5,6 +5,8 @@ public class Main {
         String address = "C:\\Users\\Valentyn\\IdeaProjects\\file_translate\\Texts";
         String fileName = "test.txt";
 
+        new UserInterface();
+
         Reader reader = new Reader(address, fileName);
         reader.read();
     }

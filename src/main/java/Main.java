@@ -7,7 +7,7 @@ public class Main {
 
         new UserInterface();
 
-        Reader reader = new Reader(address, fileName);
-        reader.read();
+        /*Reader reader = new Reader(address, fileName);
+        reader.read();*/
     }
 }

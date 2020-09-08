@@ -2,24 +2,30 @@ import java.io.File;
 import java.util.Scanner;
 
 class Reader{
-    private final String address;
+    private  String address;
     private String fileName = "";
+    private File file;
 
     Reader(String address, String fileName) {
         this.address = address;
         this.fileName = fileName;
     }
+    Reader(File origFile){
+        this.file = origFile;
+    }
     /*public Reader(String address) {
         this.address = address;
     }*/
-    void read() throws Exception {
-        File file = new File(address, fileName);
+    public String read() throws Exception {
+        //File file = new File(address, fileName);
+        String text = "";
 
         Scanner scanner = new Scanner(file);
         while (scanner.hasNext()){
-            String text = scanner.nextLine();
-            Writer writer = new Writer(text, fileName);
-            writer.translate();
+            text = scanner.nextLine();
+            /*Writer writer = new Writer(text, fileName);
+            writer.translate();*/
         }
+        return text;
     }
 }

@@ -52,7 +52,12 @@ public class UserInterface extends JFrame implements ActionListener {
             int appr = fileChooser.showOpenDialog(this);
             if (appr == JFileChooser.APPROVE_OPTION){
                 File file = fileChooser.getSelectedFile();
-                //TODO передть метод чтения фала класса Reader и отправить туда имя и путь к файлу
+                try {
+                    String text = new Reader(file).read();
+                    original.setText(text);
+                }catch (Exception e1){
+                    e1.printStackTrace();
+                }
             }
         }
         else if (e.getSource() == save){
@@ -63,7 +68,7 @@ public class UserInterface extends JFrame implements ActionListener {
         }
         else if (e.getSource() == readFile){
             String origTxt = original.getText();
-            new Writer(origTxt);
+            new Writer(origTxt).translate();
         }
     }
 }

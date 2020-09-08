@@ -17,14 +17,18 @@ public class UserInterface extends JFrame implements ActionListener {
 
     UserInterface(){
         JPanel buttonPanel = new JPanel(new GridLayout(0, 1));
-        setSize(1200, 530);
+        JPanel origTexPanel = new JPanel(new BorderLayout());
+        JPanel resTexPanel = new JPanel(new BorderLayout());
+        setSize(1200, 535);
         setLayout(new FlowLayout());
         setTitle("File Translate");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JScrollPane scrollPane = new JScrollPane(original);
         JScrollPane scrollPane1 = new JScrollPane(result);
 
-        add(scrollPane);
+        add(origTexPanel);
+        origTexPanel.add(new JLabel("Original Text"),"North");
+        origTexPanel.add(scrollPane);
         add(buttonPanel);
 
         buttonPanel.add(browse);
@@ -32,7 +36,9 @@ public class UserInterface extends JFrame implements ActionListener {
         buttonPanel.add(save);
         buttonPanel.add(close);
 
-        add(scrollPane1);
+        add(resTexPanel);
+        resTexPanel.add(new JLabel("Translated Text"), "North");
+        resTexPanel.add(scrollPane1);
 
         browse.addActionListener(this);
         close.addActionListener(this);

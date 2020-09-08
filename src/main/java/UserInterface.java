@@ -61,5 +61,9 @@ public class UserInterface extends JFrame implements ActionListener {
                 File file = fileChooser.getCurrentDirectory();
             }
         }
+        else if (e.getSource() == readFile){
+            String origTxt = original.getText();
+            new Writer(origTxt);
+        }
     }
 }

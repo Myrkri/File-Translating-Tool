@@ -8,11 +8,14 @@ import java.io.FileWriter;
 class Writer {
 
     private final String text;
-    private final String fileName;
+    private String fileName;
 
     Writer(String text, String fileName) {
         this.text = text;
         this.fileName = fileName;
+    }
+    Writer(String text){
+        this.text = text;
     }
 
     void translate(){

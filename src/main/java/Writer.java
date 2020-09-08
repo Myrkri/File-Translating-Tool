@@ -6,19 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 
 class Writer {
-
-    private String text; // text that I need to translate
-    private File fileName; //file name
-    private String translatedText; // translate method return value
-
-    Writer(File file) {
-        this.fileName = file;
-    }
-    Writer(String text){
-        this.text = text;
-    }
-
-    String translate(){
+    String translate(String text){
 
         System.setProperty("GOOGLE_API_KEY", "AIzaSyBvkISMdns7ZPDdkBZ4cZF1r6N1F0x--8E");
         Translate translate = TranslateOptions.getDefaultInstance().getService();
@@ -26,9 +14,9 @@ class Writer {
         Translation translation = translate.translate(text, Translate.TranslateOption.sourceLanguage("en"), Translate.TranslateOption.targetLanguage("ru"));
         System.out.printf("Text: "+text+"\nTranslated text: %s\n", translation.getTranslatedText());
 
-        return translatedText = translation.getTranslatedText();
+        return  translation.getTranslatedText();
     }
-    void fileCreator() throws Exception{
+    void fileCreator(String text, File fileName) throws Exception{
 
         if (fileName.createNewFile()){
             System.out.println("File was created!");
@@ -37,7 +25,7 @@ class Writer {
             System.out.println("File exists");
         }
         FileWriter fileWriter = new FileWriter(fileName);
-        fileWriter.write(translatedText);
+        fileWriter.write(text);
         fileWriter.close();
     }
 }

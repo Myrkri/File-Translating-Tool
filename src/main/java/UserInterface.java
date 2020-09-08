@@ -6,18 +6,17 @@ import java.io.File;
 
 public class UserInterface extends JFrame implements ActionListener {
 
-    private JButton browse = new JButton("Browse...");
-    private JButton close = new JButton("Close");
-    private JButton readFile = new JButton("Translate");
-    private JTextArea original = new JTextArea(30,50);
-    private JTextArea result = new JTextArea(30,50);
-    private JButton save = new JButton("Save Result"); //TODO Rename it later
+    private final JButton browse = new JButton("Browse...");
+    private final JButton close = new JButton("Close");
+    private final JButton readFile = new JButton("Translate");
+    private final JTextArea original = new JTextArea(30,50);
+    private final JTextArea result = new JTextArea(30,50);
+    private final JButton save = new JButton("Save");
 
-    private JFileChooser fileChooser = new JFileChooser("C:\\");
-
-    private JPanel buttonPanel = new JPanel(new GridLayout(0,1));
+    private final JFileChooser fileChooser = new JFileChooser("C:\\");
 
     UserInterface(){
+        JPanel buttonPanel = new JPanel(new GridLayout(0, 1));
         setSize(1200, 530);
         setLayout(new FlowLayout());
         setTitle("File Translate");
@@ -53,7 +52,7 @@ public class UserInterface extends JFrame implements ActionListener {
             if (appr == JFileChooser.APPROVE_OPTION){
                 File file = fileChooser.getSelectedFile();
                 try {
-                    String text = new Reader(file).read();
+                    String text = new Reader().read(file);
                     original.setText(text);
                 }catch (Exception e1){
                     e1.printStackTrace();
@@ -64,8 +63,9 @@ public class UserInterface extends JFrame implements ActionListener {
             int savd = fileChooser.showSaveDialog(this);
             if (savd == JFileChooser.APPROVE_OPTION){
                 File file = fileChooser.getSelectedFile();
+                String text = result.getText();
                 try {
-                    new Writer(file).fileCreator();
+                    new Writer().fileCreator(text, file);
                 }catch (Exception exception){
                     exception.printStackTrace();
                 }
@@ -73,7 +73,7 @@ public class UserInterface extends JFrame implements ActionListener {
         }
         else if (e.getSource() == readFile){
             String origTxt = original.getText();
-            String translText = new Writer(origTxt).translate();
+            String translText = new Writer().translate(origTxt);
             result.setText(translText);
         }
     }

@@ -2,14 +2,7 @@ import java.io.File;
 import java.util.Scanner;
 
 class Reader{
-
-    private final File file;
-
-    Reader(File origFile){
-        this.file = origFile;
-    }
-
-    public String read() throws Exception {
+    public String read(File file) throws Exception {
         String text = "";
 
         Scanner scanner = new Scanner(file);

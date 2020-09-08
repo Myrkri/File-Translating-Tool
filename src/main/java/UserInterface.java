@@ -63,12 +63,18 @@ public class UserInterface extends JFrame implements ActionListener {
         else if (e.getSource() == save){
             int savd = fileChooser.showSaveDialog(this);
             if (savd == JFileChooser.APPROVE_OPTION){
-                File file = fileChooser.getCurrentDirectory();
+                File file = fileChooser.getSelectedFile();
+                try {
+                    new Writer(file).fileCreator();
+                }catch (Exception exception){
+                    exception.printStackTrace();
+                }
             }
         }
         else if (e.getSource() == readFile){
             String origTxt = original.getText();
-            new Writer(origTxt).translate();
+            String translText = new Writer(origTxt).translate();
+            result.setText(translText);
         }
     }
 }

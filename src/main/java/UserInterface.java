@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,16 +16,27 @@ public class UserInterface extends JFrame implements ActionListener {
     private final JMenuItem item2 = new JMenuItem("Save");
     private final JMenuItem item3 = new JMenuItem("Close");
 
+    String[] origLangs = {"English", "Russian", "Turkish", "French", "German", "Greek", "Estonian", "Bulgarian", "Italian"};
+    String[] tranLangs = {"Russian", "English", "Turkish", "French", "German", "Greek", "Estonian", "Bulgarian", "Italian"};
+    private final JComboBox orig = new JComboBox(origLangs);
+    private final JComboBox trns = new JComboBox(tranLangs);
+
     UserInterface(){
         JPanel buttonPanel = new JPanel(new GridLayout(0, 1));
         JPanel origTexPanel = new JPanel(new BorderLayout());
         JPanel resTexPanel = new JPanel(new BorderLayout());
-        setSize(1200, 535);
+        setSize(1200, 570);
         setLayout(new FlowLayout());
         setTitle("File Translate");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JScrollPane scrollPane = new JScrollPane(original);
         JScrollPane scrollPane1 = new JScrollPane(result);
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text File(.txt)", "txt");
+
+        fileChooser.setDialogTitle("Select text file");
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.addChoosableFileFilter(filter);
 
         JMenu menu = new JMenu("Menu");
         menu.add(item1);
@@ -40,7 +52,9 @@ public class UserInterface extends JFrame implements ActionListener {
         origTexPanel.add(scrollPane);
         add(buttonPanel);
 
+        buttonPanel.add(orig);
         buttonPanel.add(readFile);
+        buttonPanel.add(trns);
 
         add(resTexPanel);
         resTexPanel.add(new JLabel("Translated Text"), "North");
@@ -50,6 +64,8 @@ public class UserInterface extends JFrame implements ActionListener {
         item3.addActionListener(this);
         readFile.addActionListener(this);
         item2.addActionListener(this);
+        orig.addActionListener(this);
+        trns.addActionListener(this);
 
         setVisible(true);
     }
@@ -84,8 +100,14 @@ public class UserInterface extends JFrame implements ActionListener {
             }
         }
         else if (e.getSource() == readFile){
+            String[] origLangs = {"en", "ru", "tr", "fr", "de", "el", "et", "bg", "it"};
+            String[] tranLangs = {"ru", "en", "tr", "fr", "de", "el", "et", "bg", "it"};
+            int abbOrLan = orig.getSelectedIndex();
+            int abbTargLan = trns.getSelectedIndex();
+            String abbLanOr = origLangs[abbOrLan];
+            String abbLanTarg = tranLangs[abbTargLan];
             String origTxt = original.getText();
-            String translText = new Writer().translate(origTxt);
+            String translText = new Writer().translate(origTxt, abbLanOr, abbLanTarg);
             result.setText(translText);
         }
     }

@@ -2,19 +2,24 @@ import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileWriter;
 
 class Writer {
-    String translate(String text){
+    String translate(String text, String origLan, String targLan){
 
+        String result = "";
         System.setProperty("GOOGLE_API_KEY", "AIzaSyBvkISMdns7ZPDdkBZ4cZF1r6N1F0x--8E");
         Translate translate = TranslateOptions.getDefaultInstance().getService();
 
-        Translation translation = translate.translate(text, Translate.TranslateOption.sourceLanguage("en"), Translate.TranslateOption.targetLanguage("ru"));
-        System.out.printf("Text: "+text+"\nTranslated text: %s\n", translation.getTranslatedText());
-
-        return  translation.getTranslatedText();
+        try {
+            Translation translation = translate.translate(text, Translate.TranslateOption.sourceLanguage(origLan), Translate.TranslateOption.targetLanguage(targLan));
+            result = translation.getTranslatedText();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Please! Choose languages correctly");
+        }
+        return result;
     }
     void fileCreator(String text, File fileName) throws Exception{
 

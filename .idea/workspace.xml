@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b002127-cf2c-41b1-8faf-cac215a08922" name="Default Changelist" comment="+Added Language options&#10;+Fixed bugs&#10;-Removed extra codes">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/UserInterface.class" afterDir="false" />
+    <list default="true" id="6b002127-cf2c-41b1-8faf-cac215a08922" name="Default Changelist" comment="+GOOGLE_API_KEY">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Writer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Writer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +208,7 @@
       <workItem from="1599568663280" duration="7275000" />
       <workItem from="1602069141412" duration="7167000" />
       <workItem from="1603022216820" duration="299000" />
-      <workItem from="1607264269310" duration="2549000" />
+      <workItem from="1607264269310" duration="3389000" />
     </task>
     <task id="LOCAL-00001" summary="Removed some commented codes">
       <created>1598968767533</created>
@@ -324,7 +322,28 @@
       <option name="project" value="LOCAL" />
       <updated>1602075729692</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="+.gitignore">
+      <created>1607267127295</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1607267127295</updated>
+    </task>
+    <task id="LOCAL-00018" summary="+GOOGLE_API_KEY">
+      <created>1607267298517</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607267298517</updated>
+    </task>
+    <task id="LOCAL-00019" summary="+GOOGLE_API_KEY">
+      <created>1607267305279</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607267305279</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +392,9 @@
     <MESSAGE value="Merged Main and GUI_connect branches" />
     <MESSAGE value="Changed Buttons to MenuBar" />
     <MESSAGE value="+Added Language options&#10;+Fixed bugs&#10;-Removed extra codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="+Added Language options&#10;+Fixed bugs&#10;-Removed extra codes" />
+    <MESSAGE value="+.gitignore" />
+    <MESSAGE value="+GOOGLE_API_KEY" />
+    <option name="LAST_COMMIT_MESSAGE" value="+GOOGLE_API_KEY" />
   </component>
   <component name="WindowStateProjectService">
     <state x="577" y="130" key="#com.intellij.ide.util.MemberChooser" timestamp="1599142437481">

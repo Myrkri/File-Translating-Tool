@@ -10,7 +10,7 @@ class Writer {
     String translate(String text, String origLan, String targLan){
 
         String result = "";
-        System.setProperty("GOOGLE_API_KEY", "Put your API_KEY here");                              //TODO: API_KEY here
+        System.setProperty("GOOGLE_API_KEY", "AIzaSyBvkISMdns7ZPDdkBZ4cZF1r6N1F0x--8E");
         Translate translate = TranslateOptions.getDefaultInstance().getService();
 
         try {
